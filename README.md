@@ -99,3 +99,5 @@ First you need to deploy your service and check if it's possible to call it. Aft
 # Deploy to s3 bucket
 
 At this point, it's necessary to generate a "production build" for the frontend app, take the generated sources and copy them to S3. Don't forget to set the endpoint
+
+You need to run `deploy_frontend.sh` but without forgetting to pass the endpoint. You might need to modify the script in that case
