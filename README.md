@@ -2,7 +2,7 @@ Instructions
 ============
 - Clone the following [repository](https://github.com/codurance/serverless-base) which will give you access to a fully aws-serverless enabled container
 # - to be done repo
-- Clone the following [repository](frontendrepo). This will be the frontend project
+- Clone the following [repository](https://github.com/codurance/serverless-gfd-trainee-repo). This will be the frontend project
 - Add the frontend project as a volume to your container. If the project is called `lambda-training`, then you can add the volume like this
   - Edit `docker-compose.yml`file and add
   - ```
