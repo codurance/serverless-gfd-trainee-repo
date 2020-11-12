@@ -40,7 +40,7 @@ In order to create your first lambda service, you need to
 
 Tip:
 
-  iamRoleStatements:
+  ```iamRoleStatements:
     - Effect: Allow
       Action:
         - dynamodb:DescribeTable
@@ -54,13 +54,15 @@ Tip:
       # the specific table for the stage
       Resource:
         - "arn:aws:dynamodb:us-east-1:300563897675:table/serverless-gfd-it1-posts-database"
+```
 
-
+```
 aws dynamodb put-item \
     --table-name serverless-gfd-it1-posts-database \
     --item '{
       "id": {"S": "200300400"}, "posts": { "S": "CONGRATULATIONS !data_from_the_database"}
     }'
+```
 
 # 4 Format the output to be a plain json
 
@@ -73,12 +75,13 @@ we have to convert from dynamodb format...
 
 post this well formatted data on the DB
 
+```
 aws dynamodb put-item \
     --table-name serverless-gfd-it1-posts-database \
     --item '{
       "id": {"S": "1234"}, "posts": { "L": [    { "M" : {        "dateTime" : { "N" : "1549312452000" },        "postId" : { "S" : "102030" },        "text" : { "S" : "Fake post done via CLI while backend is under construction" },        "userId" : { "S" : "1234" }      }    },    { "M" : {        "dateTime" : { "N" : "1549312453000" },        "postId" : { "S" : "102031" },        "text" : { "S" : "Fake post from another user while backend is under construction" },        "userId" : { "S" : "1234" }      }    }  ] }
     }'
-
+```
 
 lambda should output the posts array 
 
