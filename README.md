@@ -64,6 +64,12 @@ aws dynamodb put-item \
     }'
 ```
 
+Have the lambda returning this database entry 
+```
+var ddb = new AWS.DynamoDB({ apiVersion: '2012-08-10' });
+ddb.getItem(...
+```
+
 # 4 Format the output to be a plain json
 
 Tip:
