@@ -24,7 +24,8 @@ Instructions
 ## 1 Creating your first lambda service
 In order to create your first lambda service, you need to 
     
-- install the aws sdk and configure it
+- install the aws CLI and configure it
+- install the aws sdk in a folder (node style)
 - install the library middy
 - install serverless-offline
 
