@@ -13,7 +13,7 @@ In order to create your first lambda service, you need
 
 create a hello world lambda, deploy it, call it 
 
-# quick fix -- ask  - 30m
+#### quick fix -- ask  - 30m
 
 ![](https://raw.githubusercontent.com/codurance/serverless-gfd-trainee-repo/_master/docs/middy.png)
 
