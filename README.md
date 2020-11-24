@@ -13,14 +13,14 @@ In order to create your first lambda service, you need
 
 create a hello world lambda, deploy it, call it 
 
-## quick fix -- ask  - 30m
+# quick fix -- ask  - 30m
 
-![](![](https://raw.githubusercontent.com/codurance/serverless-gfd-trainee-repo/_master/docs/middy.png)
+![](https://raw.githubusercontent.com/codurance/serverless-gfd-trainee-repo/_master/docs/middy.png)
 
 - Use middy to have it working,  
 - User curl -v to see the headers 
 
-# Goal 3: allow the Lambda to read from a database - 1h30m
+## Goal 2: allow the Lambda to read from a database - 1h30m
 
 Tip:
 
@@ -54,14 +54,14 @@ var ddb = new AWS.DynamoDB({ apiVersion: '2012-08-10' });
 ddb.getItem(...
 ```
 
-# Goal: have the output of the dynamodb to have a json shape - 1h
+## Goal 3: have the output of the dynamodb to have a json shape - 1h
 
 Tip:
 we have to convert from dynamodb format...
 
 
 
-# Goal: Connect the lambda to the frontend - 1h
+## Goal 4: Connect the lambda to the frontend - 1h
 
 post this well formatted data on the DB
 
