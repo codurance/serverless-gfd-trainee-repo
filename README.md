@@ -1,44 +1,26 @@
 Instructions
 ============
-- Clone the following [repository](https://github.com/codurance/serverless-base) which will give you access to a fully aws-serverless enabled container
 - Clone the following [repository](https://github.com/codurance/serverless-gfd-trainee-repo). This will be the frontend project
-- Add the frontend project as a volume to your container. If the project is called `lambda-training`, then you can add the volume like this
-  - Edit `docker-compose.yml`file and add
-  - ```
-    ...
-    ./serverless:/home/svrless
-    $PATH_TO_YOUR_FOLDER/lambda-training:/home/lambda-training
-  - /Users/YOURNAME/Dev/bench/serverless/frontend:/home/lambda-training/frontend
-    ...
-    ``` 
-- Access your docker container by running
-  - `cd YOUR_AWS_SERVERLESS_CONTAINER_REPO`
-  - `docker-compose build`
-  - `docker-compose up -d `
-  - `docker exec -it serverless-image_serverless-framework_1 /bin/bash` Where `serverless-image_serverless-framework_1` is the name of your container. You can get the name by running `docker-compose ps`
-  Once there, you'll get something like this
-  ```
-  root@ec5fe463cbb6:/home/svrless#
-  ```
-  Now you have access to your container. You can move to `/home/lambda-training` and perform everything from that folder
-## 1 Creating your first lambda service
-In order to create your first lambda service, you need to 
-    
-- install the aws CLI and configure it
-- install the serverless framework (node)
-- install the aws sdk in a folder (node)
-- install the library middy (node)
-- install serverless-offline (node)
 
-- create a hello world lambda serverless create --template aws-nodejs
-- invoke it locally 
+## Goal 1: have a lambda doing a hello world - 1h
+In order to create your first lambda service, you need 
 
-## 2 Create a lambda that have cors
+   brew install awscli
+   npm init
+   npm install -g serverless
+   npm install middy
+   npm install serverless-offline
+
+create a hello world lambda, deploy it, call it 
+
+## quick fix -- ask  - 30m
+
+![](![](https://raw.githubusercontent.com/codurance/serverless-gfd-trainee-repo/_master/docs/middy.png)
 
 - Use middy to have it working,  
 - User curl -v to see the headers 
 
-# 3 Create a dynamo db database and give permissions for it
+# Goal 3: allow the Lambda to read from a database - 1h30m
 
 Tip:
 
@@ -72,14 +54,14 @@ var ddb = new AWS.DynamoDB({ apiVersion: '2012-08-10' });
 ddb.getItem(...
 ```
 
-# 4 Format the output to be a plain json
+# Goal: have the output of the dynamodb to have a json shape - 1h
 
 Tip:
 we have to convert from dynamodb format...
 
 
 
-# 5 Connect the database to the frontend
+# Goal: Connect the lambda to the frontend - 1h
 
 post this well formatted data on the DB
 
@@ -91,23 +73,10 @@ aws dynamodb put-item \
     }'
 ```
 
-lambda should output the posts array 
-
-
-# 6 Connect frontend locally
-
 to run the frontend locally you need: `yarn install && yarn start-insecure` passing the endpoint acording to the Readme of the frontend project.
 
+Follow the following tips
 
-Tip: you will need serverless running local. If you're running from docker image, consider the exposed ports as a hint if you have collisions. Also, when running serverless local, add --host 0.0.0.0, in that way, your service will be visible everywhere in your network
+![](https://raw.githubusercontent.com/codurance/serverless-gfd-trainee-repo/_master/docs/connect-frontend-tips.png)
+![](https://raw.githubusercontent.com/codurance/serverless-gfd-trainee-repo/_master/docs/connect-frontend-tips-2.png)
 
-
-# 7 Connect frontend with deployed Lambda in AWS
-
-First you need to deploy your service and check if it's possible to call it. After that, run your frontend passing the remote endpoint to `yarn start-insecure`
-
-# 8 Deploy to s3 bucket
-
-At this point, it's necessary to generate a "production build" for the frontend app, take the generated sources and copy them to S3. Don't forget to set the endpoint
-
-You need to run `deploy_frontend.sh` but without forgetting to pass the endpoint. You might need to modify the script in that case
